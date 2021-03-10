@@ -5,6 +5,10 @@ import org.springframework.stereotype.Repository;
 import pl.coderslab.model.Category;
 import pl.coderslab.model.Institution;
 
+import java.util.List;
+
 @Repository
 public interface InstitutionRepository extends JpaRepository<Institution, Long> {
+
+    //List<Institution> getAll();
 }
