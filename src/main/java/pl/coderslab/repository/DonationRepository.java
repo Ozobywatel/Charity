@@ -7,4 +7,6 @@ import pl.coderslab.model.Donation;
 
 @Repository
 public interface DonationRepository extends JpaRepository<Donation, Long> {
+
+    public Long countByQuantity();
 }
