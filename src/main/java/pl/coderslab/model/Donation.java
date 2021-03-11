@@ -38,10 +38,10 @@ public class Donation {
     @Pattern(regexp = "[0-9]{2}-[0-9]{3}")
     private String zipCode;
 
-    @NotBlank
+    @NotNull
     private LocalDate pickUpDate;
 
-    @NotBlank
+    @NotNull
     private LocalTime pickUpTime;
 
     @NotBlank
