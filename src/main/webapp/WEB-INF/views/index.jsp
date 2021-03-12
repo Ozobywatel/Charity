@@ -14,7 +14,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
                 tempora!</p>
         </div>
-3
+        3
         <div class="stats--item">
             <em>${gifts}</em>
             <h3>Przekazanych darów</h3>
@@ -82,6 +82,10 @@
                 <c:if test="${counter.count %2 == 0}">
             </li>
             <li>
+                </c:if>
+                <c:if test="${counter.last && counter.count %2 != 0}">
+                    <div style="visibility: hidden" class="col">
+                    </div>
                 </c:if>
                 </c:forEach>
             </li>
