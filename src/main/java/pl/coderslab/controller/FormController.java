@@ -22,13 +22,10 @@ public class FormController {
         this.categoryRepository = categoryRepository;
     }
 
-    @RequestMapping("/123")
+    @RequestMapping("/new_donation")
     public String homeAction(Model model){
 
-        model.addAttribute("institutions", institutionRepository.findAll());
-        model.addAttribute("gifts", donationRepository.count());
-        model.addAttribute("bags", donationRepository.sumBagsByQuantity());
-        return "index";
+        return "form";
     }
 
 }
