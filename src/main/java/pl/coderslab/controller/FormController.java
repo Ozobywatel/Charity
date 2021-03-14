@@ -3,6 +3,7 @@ package pl.coderslab.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.model.Category;
 import pl.coderslab.repository.CategoryRepository;
 import pl.coderslab.repository.DonationRepository;
@@ -22,9 +23,9 @@ public class FormController {
         this.categoryRepository = categoryRepository;
     }
 
-    @RequestMapping("/new_donation")
+    @RequestMapping(value = "/new_donation", method = RequestMethod.GET)
     public String homeAction(Model model){
-
+        model.addAttribute("categories", categoryRepository.findAll());
         return "form";
     }
 
