@@ -87,26 +87,23 @@
 
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
-
-        <form action="form-confirmation.html" method="post">
+<%--        <form method="post">--%>
+        <form:form method="post" modelAttribute="donation">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
-                <c:forEach items="${categories}" var="category">
+<%--                <c:forEach items="${categories}" var="category">--%>
                 <div class="form-group form-group--checkbox">
                     <label>
-                        <input
-                                type="checkbox"
-                                name="categories"
-                                value="clothes-to-use"
-                        />
                         <span class="checkbox"></span>
-                        <span class="description"
-                        ><form:checkbox path=""${category.name}</span
-                        >
+                        <span class="description">
+                            <form:checkboxes path="category" itemLabel="name" itemValue="id"
+                                         items="${categories}"/><br/>
+<%--                            <form:checkbox path="category" itemLabel="name" itemValue="id"/>--%>
+                        </span>
                     </label>
                 </div>
-                </c:forEach>
+<%--                </c:forEach>--%>
 
 
                 <div class="form-group form-group--buttons">
@@ -274,7 +271,8 @@
                     <button type="submit" class="btn">Potwierdzam</button>
                 </div>
             </div>
-        </form>
+            </form:form>
+<%--        </form>--%>
     </div>
 </section>
 

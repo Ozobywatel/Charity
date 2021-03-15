@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.model.Category;
+import pl.coderslab.model.Donation;
 import pl.coderslab.repository.CategoryRepository;
 import pl.coderslab.repository.DonationRepository;
 import pl.coderslab.repository.InstitutionRepository;
@@ -25,7 +26,9 @@ public class FormController {
 
     @RequestMapping(value = "/new_donation", method = RequestMethod.GET)
     public String homeAction(Model model){
+        model.addAttribute("donation", new Donation());
         model.addAttribute("categories", categoryRepository.findAll());
+        model.addAttribute("institutions", institutionRepository.findAll());
         return "form";
     }
 
