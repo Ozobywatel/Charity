@@ -2,6 +2,7 @@ package pl.coderslab.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.model.Category;
@@ -25,12 +26,22 @@ public class FormController {
     }
 
     @RequestMapping(value = "/new_donation", method = RequestMethod.GET)
-    public String homeAction(Model model){
+    public String formDonationAdd(Model model){
         model.addAttribute("donation", new Donation());
         model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("institutions", institutionRepository.findAll());
         return "form";
     }
+
+    @RequestMapping(value = "/new_donation", method = RequestMethod.POST)
+    public String saveDonation(Donation donation, BindingResult result){
+        if (result.hasErrors()) {
+            return "/form";
+        }
+        donationRepository.save(donation);
+        return "redirect:/";
+    }
+
 
 
 }
