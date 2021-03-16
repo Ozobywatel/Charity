@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.awt.print.Book;
 import java.util.List;
 
 @Entity
@@ -18,5 +19,6 @@ public class Category {
 
     @NotBlank
     private String name;
-
+    @OneToMany(mappedBy = "donation")
+    private List<Donation> donations;
 }
