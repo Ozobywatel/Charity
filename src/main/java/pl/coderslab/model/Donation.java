@@ -24,6 +24,8 @@ public class Donation {
     @NotNull
     private int quantity;
 
+
+
     @NotNull
     @ManyToMany
     private List<Category> categories = new ArrayList<>();

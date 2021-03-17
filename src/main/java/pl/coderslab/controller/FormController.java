@@ -11,6 +11,8 @@ import pl.coderslab.repository.CategoryRepository;
 import pl.coderslab.repository.DonationRepository;
 import pl.coderslab.repository.InstitutionRepository;
 
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 public class FormController {
@@ -34,11 +36,12 @@ public class FormController {
     }
 
     @RequestMapping(value = "/new_donation", method = RequestMethod.POST)
-    public String saveDonation(Donation donation, BindingResult result){
-        if (result.hasErrors()) {
+    public String saveDonation(Donation donation, BindingResult result, HttpSession session){
+                if (result.hasErrors()) {
             return "/form";
         }
-        donationRepository.save(donation);
+            session.setAttribute("don", donation);
+       // donationRepository.save(donation);
         return "redirect:/";
     }
 
