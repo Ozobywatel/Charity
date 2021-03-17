@@ -42,7 +42,7 @@ public class FormController {
         }
             session.setAttribute("don", donation);
        // donationRepository.save(donation);
-        return "redirect:/";
+        return "redirect:/new_donation_confirm";
     }
 
 
