@@ -1,40 +1,9 @@
+<%@ include file="/WEB-INF/views/header-form.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Document</title>
-    <link rel="stylesheet" href="<c:url value="/theme/css/style.css"/>"/>
-</head>
-<body>
-<header class="header--form-page">
-    <nav class="container container--70">
-        <ul class="nav--actions">
-            <li class="logged-user">
-                Witaj!
-                <ul class="dropdown">
-                    <li><a href="#">Profil</a></li>
-                    <li><a href="#">Moje zbiórki</a></li>
-                    <li><a href="#">Wyloguj</a></li>
-                </ul>
-            </li>
-        </ul>
-
-        <ul>
-            <li><a href="index.html" class="btn btn--without-border active">Start</a></li>
-            <li><a href="index.html#steps" class="btn btn--without-border">O co chodzi?</a></li>
-            <li><a href="index.html#about-us" class="btn btn--without-border">O nas</a></li>
-            <li><a href="index.html#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
-            <li><a href="index.html#contact" class="btn btn--without-border">Kontakt</a></li>
-        </ul>
-    </nav>
 
     <div class="slogan container container--90">
         <div class="slogan--item">
@@ -121,6 +90,7 @@
                     Liczba 60l worków:
                     <form:input type="number" step="1" path="quantity"
                                 placeholder="1"/>
+                    <form:errors path="quantity"/>
                 </label>
             </div>
 
@@ -164,40 +134,44 @@
                 <div class="form-section--column">
                     <h4>Adres odbioru</h4>
                     <div class="form-group form-group--inline">
-                        <label> Ulica <form:input type="text" path="street"/> </label>
+                        <label> Ulica <form:input type="text" path="street"/>
+                            <form:errors path="street"/>
+                        </label>
                     </div>
 
                     <div class="form-group form-group--inline">
-                        <label> Miasto <form:input type="text" path="city"/> </label>
+                        <label> Miasto <form:input type="text" path="city"/>
+                            <form:errors path="city"/>
+                        </label>
                     </div>
 
                     <div class="form-group form-group--inline">
                         <label>
                             Kod pocztowy <form:input type="text" path="zipCode"/>
+                            <form:errors path="zipCode"/>
                         </label>
                     </div>
-
-                        <%--                        <div class="form-group form-group--inline">--%>
-                        <%--                            <label>--%>
-                        <%--                                Numer telefonu <input type="phone" name="phone" />--%>
-                        <%--                            </label>--%>
-                        <%--                        </div>--%>
-                </div>
+                    </div>
 
                 <div class="form-section--column">
                     <h4>Termin odbioru</h4>
                     <div class="form-group form-group--inline">
-                        <label> Data <form:input type="date" path="pickUpDate"/> </label>
+                        <label> Data <form:input type="date" path="pickUpDate"/>
+                            <form:errors path="pickUpDate"/>
+                        </label>
                     </div>
 
                     <div class="form-group form-group--inline">
-                        <label> Godzina <form:input type="time" path="pickUpTime"/> </label>
+                        <label> Godzina <form:input type="time" path="pickUpTime"/>
+                            <form:errors path="pickUpTime"/>
+                        </label>
                     </div>
 
                     <div class="form-group form-group--inline">
                         <label>
                             Uwagi dla kuriera
                             <form:textarea path="pickUpComment" rows="5"/>
+                            <form:errors path="pickUpComment"/>
                         </label>
                     </div>
                 </div>
