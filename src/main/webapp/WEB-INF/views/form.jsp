@@ -33,7 +33,7 @@
     </div>
 </header>
 
-<section class="form--steps">
+<section id="form" class="form--steps">
     <div class="form--steps-instructions">
         <div class="form--steps-container">
             <h3>Ważne!</h3>
@@ -57,6 +57,9 @@
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
         <%--        <form method="post">--%>
         <form:form method="post" modelAttribute="donation">
+        <c:forEach items="${errors}" var="error2">
+            ${error2.defaultMessage}<br>
+        </c:forEach>
         <!-- STEP 1: class .active is switching steps -->
         <div data-step="1" class="active">
             <h3>Zaznacz co chcesz oddać:</h3>

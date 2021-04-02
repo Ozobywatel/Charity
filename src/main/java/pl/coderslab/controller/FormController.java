@@ -14,6 +14,7 @@ import pl.coderslab.repository.DonationRepository;
 import pl.coderslab.repository.InstitutionRepository;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -39,18 +40,18 @@ public class FormController {
     @RequestMapping(value = "/new_donation", method = RequestMethod.GET)
     public String formDonationAdd(Model model){
         model.addAttribute("donation", new Donation());
-        model.addAttribute("categories", categoryRepository.findAll());
-        model.addAttribute("institutions", institutionRepository.findAll());
         return "form";
     }
 
     @RequestMapping(value = "/new_donation", method = RequestMethod.POST)
-    public String saveDonation(Donation donation, BindingResult result, HttpSession session){
+    public String saveDonation(@Valid Donation donation, BindingResult result,
+                               HttpSession session, Model model){
                 if (result.hasErrors()) {
+                    model.addAttribute("errors", result.getAllErrors());
             return "/form";
         }
-            session.setAttribute("don", donation);
-        return "redirect:/new_donation_confirm";
+            session.setAttribute("donation", donation);
+        return "redirect:/new_donation_confirm#donation";
     }
 
 

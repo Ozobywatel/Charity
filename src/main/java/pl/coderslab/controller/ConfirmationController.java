@@ -21,15 +21,13 @@ public class ConfirmationController {
 
     @RequestMapping(value = "/new_donation_confirm", method = RequestMethod.GET)
     public String formDonationAdd(Model model, HttpSession session){
-        Donation donation = (Donation) session.getAttribute("don");
-        model.addAttribute("donation", donation);
         return "confirm";
     }
 
     @RequestMapping(value = "/new_donation_confirm", method = RequestMethod.POST)
     public String saveDonation(HttpSession session){
 
-        donationRepository.save((Donation) session.getAttribute("don"));
+        donationRepository.save((Donation) session.getAttribute("donation"));
         return "redirect:/finish";
     }
 
