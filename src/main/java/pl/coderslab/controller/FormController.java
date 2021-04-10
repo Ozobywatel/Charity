@@ -48,7 +48,7 @@ public class FormController {
                                HttpSession session, Model model){
                 if (result.hasErrors()) {
                     model.addAttribute("errors", result.getAllErrors());
-            return "/form";
+            return "/validation-fail-list";
         }
             session.setAttribute("donation", donation);
         return "redirect:/new_donation_confirm#donation";
