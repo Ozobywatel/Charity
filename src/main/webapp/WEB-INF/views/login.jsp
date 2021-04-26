@@ -10,16 +10,20 @@
     <h2>Zaloguj się</h2>
     <form>
         <div class="form-group">
-            <input type="email" name="email" placeholder="Email" />
+            <input type="text" name="username" class="form-control form-control-user"
+                   id="username" aria-describedby="emailHelp"
+                   placeholder="Enter Username..." required="">
         </div>
         <div class="form-group">
-            <input type="password" name="password" placeholder="Hasło" />
+            <input type="password" name="password" class="form-control form-control-user"
+                   id="password" placeholder="Password" required="">
             <a href="#" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
         </div>
 
         <div class="form-group form-group--buttons">
             <a href="#" class="btn btn--without-border">Załóż konto</a>
-            <button class="btn" type="submit">Zaloguj się</button>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <button class="btn" type="submit" value="${_csrf.token}">Zaloguj się</button>
         </div>
     </form>
 </section>
