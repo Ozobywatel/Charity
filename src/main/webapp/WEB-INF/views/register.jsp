@@ -15,7 +15,9 @@
             <form:errors path="username"/><br/>
         </div>
         <div class="form-group">
-            <input type="password" name="password" placeholder="Hasło" />
+            <form:input type="password" class="form-control form-control-user"
+                        placeholder="Hasło" path="password"/>
+            <form:errors path="password"/><br/>
         </div>
         <div class="form-group">
             <input type="password" name="password2" placeholder="Powtórz hasło" />
